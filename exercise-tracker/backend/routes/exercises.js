@@ -44,8 +44,8 @@ router.route('/:id').delete((req, res) => {
         .catch(error => res.status(400).json('Error :' + error));
 })
 
-router.route('/:i').put((req, res) => {
-    Exercise.findById(req.params.i)
+router.route('/:id').put((req, res) => {
+    Exercise.findById(req.params.id)
         .then(exer => {
             exer.username = req.body.username;
             exer.description = req.body.description;
