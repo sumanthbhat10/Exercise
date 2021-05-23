@@ -16,7 +16,7 @@ const port = process.env.PORT || 5000;
 mongoose.connect(uri, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useUnifiedTopology: true
+
 })
 
 
@@ -27,11 +27,13 @@ connection.once('open', () => {
     console.log("Running")
 })
 
-const exercise = require('./routes/exercises')
-const users = require('./routes/users')
 
-app.use('/exercises', exercise)
-app.use('/users', users);
+const exerciserouter = require('./routes/exercises')
+const usersrouter = require('./routes/users')
+
+
+app.use('/exercises', exerciserouter)
+app.use('/users', usersrouter);
 
 app.listen(port, () => {
 
